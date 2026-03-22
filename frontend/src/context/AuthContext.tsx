@@ -46,19 +46,21 @@ export default function AuthProvider({
     loadUser();
   }, []);
 
-  <AuthContext.Provider
-    value={{
-      user: neonUser,
-      isLoading,
-      //   plan,
-      //   isLoading,
-      //   saveProfile,
-      //   generatePlan,
-      //   refreshData,
-    }}
-  >
-    {children}
-  </AuthContext.Provider>;
+  return (
+    <AuthContext.Provider
+      value={{
+        user: neonUser,
+        isLoading,
+        //   plan,
+        //   isLoading,
+        //   saveProfile,
+        //   generatePlan,
+        //   refreshData,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {
