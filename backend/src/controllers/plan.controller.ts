@@ -31,6 +31,10 @@ export const getCurrentPlan = async (req: Request, res: Response) => {
 
     const plan = await fetchCurrentPlan(userId);
 
+    if (!plan) {
+      return res.status(404).json({ error: "No plan found" }); // ✅ correct
+    }
+
     return res.json(plan);
   } catch (error: any) {
     console.error("Error fetching plan:", error);
